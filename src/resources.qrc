@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file alias="icons8-disconnect-50.png">../icons/icons8-disconnect-50.png</file>
+        <file alias="icons8-connect-50.png">../icons/icons8-connect-50.png</file>
+        <file alias="icons8-clock-50.png">../icons/icons8-clock-50.png</file>
+        <file alias="icons8-settings-50.png">../icons/icons8-settings-50.png</file>
+        <file alias="icons8-scroll-50.png">../icons/icons8-scroll-50.png</file>
+        <file alias="icons8-sine-50.png">../icons/icons8-sine-50.png</file>
+        <file alias="icons8-clear-50.png">../icons/icons8-clear-50.png</file>
+        <file alias="icons8-text-box-50.png">../icons/icons8-text-box-50.png</file>
+    </qresource>
+    <qresource prefix="/styles">
+        <file alias="styles.qss">../styles/styles.qss</file>
+    </qresource>
+</RCC>
