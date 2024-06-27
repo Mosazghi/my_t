@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>450</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>400</height>
+   </size>
+  </property>
+  <!-- <property name="maximumSize"> -->
+  <!--  <size> -->
+  <!--   <width>450</width> -->
+  <!--   <height>450</height> -->
+  <!--  </size> -->
+  <!-- </property> -->
+  <property name="font">
+   <font>
+    <family>FreeMono</family>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>my_t</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QFormLayout" name="formLayout"/>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,12 @@
+QTextEdit#console {
+    background-color: #000000;
+    color: #00FF00;
+    font-family: Courier;
+    font-size: 14px;
+}
+
+QLabel, QStatusBar {
+    font-family: Courier; 
+    font-size: 14px;
+}
+
