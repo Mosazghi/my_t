@@ -1,6 +1,6 @@
 # my_t
 
-**my_t** is a highly configurable serial monitor that reads and writes data to/from serial ports. It also displays graphs for key-value variables, making it an valuable tool for debugging and testing embedded systems.
+**my_t** is a highly configurable serial monitor/terminal that reads and writes data to/from serial ports. It also displays graphs for key-value variables, making it an valuable tool for debugging and testing embedded systems.
 
  
 
