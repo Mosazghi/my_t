@@ -23,6 +23,11 @@ A Windows deployment is planned for the future.
 
    - Go to the [release page](https://github.com/Mosazghi/my_t/releases) of the repository.
    - Download the `installermy_t.run` file.
+  
+     *Alternatively*: 
+     ```sh
+     wget https://github.com/Mosazghi/my_t/releases/download/v.1.0.0/Installermy_t.run
+     ```
 
 2. **Install my_t**
 
