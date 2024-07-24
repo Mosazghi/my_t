@@ -1,8 +1,8 @@
 #include "chartmanager.h"
 
-static void customizeChart(QChart *chart);
+static void customizeChart(QChart* chart);
 
-ChartManager::ChartManager(QWidget *parent) : QWidget(parent), m_chartCount(0) {
+ChartManager::ChartManager(QWidget* parent) : QWidget(parent), m_chartCount(0) {
   mainLayout = new QVBoxLayout(this);
   chartLayout = new QGridLayout();
   chartLayout->setSpacing(5);
@@ -12,8 +12,8 @@ ChartManager::ChartManager(QWidget *parent) : QWidget(parent), m_chartCount(0) {
 
 ChartManager::~ChartManager() { m_charts.clear(); }
 
-void ChartManager::addChart(QString &name) {
-  Chart *newChart = new Chart;
+void ChartManager::addChart(QString& name) {
+  Chart* newChart = new Chart;
 
   newChart->chart->setTitle("Real-time data for <i><b>" + name + "</b></i>");
   newChart->chart->legend()->hide();
@@ -53,11 +53,11 @@ void ChartManager::addChart(QString &name) {
   m_chartCount++;
 }
 
-bool ChartManager::hasChart(QString &name) { return m_charts.contains(name); }
+bool ChartManager::hasChart(QString& name) { return m_charts.contains(name); }
 
-void ChartManager::updateChart(QString &name, double value) {
+void ChartManager::updateChart(QString& name, double value) {
   QDateTime currentTime = QDateTime::currentDateTime();
-  Chart *chart = m_charts.value(name);
+  Chart* chart = m_charts.value(name);
   chart->series->append(currentTime.toMSecsSinceEpoch(), value);
 
   chart->timestamps.push_back(currentTime);
@@ -77,12 +77,12 @@ void ChartManager::updateChart(QString &name, double value) {
   chart->axisX->setRange(currentTime.addSecs(-10), currentTime);
 }
 
-void ChartManager::closeEvent(QCloseEvent *event) {
+void ChartManager::closeEvent(QCloseEvent* event) {
   emit windowClosed();
   QWidget::closeEvent(event);
 }
 
-static void customizeChart(QChart *chart) {
+static void customizeChart(QChart* chart) {
   // Customize the chart
   chart->setTheme(QChart::ChartThemeDark);
   chart->setBackgroundRoundness(0);

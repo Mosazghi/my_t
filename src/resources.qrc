@@ -8,6 +8,7 @@
         <file alias="icons8-sine-50.png">../icons/icons8-sine-50.png</file>
         <file alias="icons8-clear-50.png">../icons/icons8-clear-50.png</file>
         <file alias="icons8-text-box-50.png">../icons/icons8-text-box-50.png</file>
+        <file alias="chart.svg">../icons/chart.svg</file>
     </qresource>
     <qresource prefix="/styles">
         <file alias="styles.qss">../styles/styles.qss</file>

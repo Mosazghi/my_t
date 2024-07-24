@@ -1,24 +1,25 @@
 #include "mainwindow.h"
-
 #include "chartmanager.h"
 #include "ui_mainwindow.h"
-
 #include <QLabel>
 #include <QRegularExpression>
 #include <QRegularExpressionValidator>
 #include <QSerialPort>
 #include <qregularexpression.h>
 
-const static QRegularExpression re("[=:]");
+static QRegularExpression const re("[=:]");
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), m_ui(new Ui::MainWindow),
-      m_settingsDialog(new SettingsDialog(this)), m_console(new Console(this)),
-      m_toolbar(new ToolbarManager(this)), m_statusLabel(new QLabel(this)),
+MainWindow::MainWindow(QWidget* parent)
+    : QMainWindow(parent),
+      m_ui(new Ui::MainWindow),
+      m_settingsDialog(new SettingsDialog(this)),
+      m_console(new Console(this)),
+      m_toolbar(new ToolbarManager(this)),
+      m_statusLabel(new QLabel(this)),
       m_statusBar(new QStatusBar(this)),
       m_chartManager(new ChartManager(nullptr)),
-      m_lineEdit(new QLineEdit(this)), m_layout(new QVBoxLayout()) {
-
+      m_lineEdit(new QLineEdit(this)),
+      m_layout(new QVBoxLayout()) {
   m_ui->setupUi(this);
   m_statusBar->addWidget(m_statusLabel);
 
@@ -28,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
   // Toolbar and Console
   this->addToolBar(m_toolbar);
 
-  QWidget *containerWidget = new QWidget(this);
+  QWidget* containerWidget = new QWidget(this);
   containerWidget->setLayout(m_layout);
 
   m_layout->addWidget(m_console);
@@ -147,14 +148,14 @@ void MainWindow::onActionConnectEvent() {
     connect(m_serialManager, &QSerialPort::errorOccurred, this,
             [this](QSerialPort::SerialPortError error) {
               switch (error) {
-                // Means we disconnected the device
-              case QSerialPort::ResourceError:
-                QMessageBox::critical(this, "Error",
-                                      m_serialManager->errorString());
-                onActionDisconnectEvent();
-                break;
-              default:
-                break;
+                  // Means we disconnected the device
+                case QSerialPort::ResourceError:
+                  QMessageBox::critical(this, "Error",
+                                        m_serialManager->errorString());
+                  onActionDisconnectEvent();
+                  break;
+                default:
+                  break;
               }
             });
     QMessageBox::information(this, "Connected",
@@ -182,13 +183,13 @@ void MainWindow::onActionDisconnectEvent() {
   }
 }
 
-void MainWindow::setStatusMessage(const QString &message) {
+void MainWindow::setStatusMessage(QString const& message) {
   m_statusLabel->setText(message);
 }
 
 void MainWindow::writeData() {
   if (m_serialManager && m_serialManager->isOpen()) {
-    const auto text = m_lineEdit->text().toUtf8();
+    auto const text = m_lineEdit->text().toUtf8();
     if (!text.isEmpty()) {
       m_serialManager->write(text);
       qDebug() << "Writing: " << text;

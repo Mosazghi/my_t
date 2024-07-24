@@ -34,7 +34,7 @@ void ToolbarManager::createActions() {
   actionToggleTimestamp->setCheckable(true);
   // Graph
   actionShowCharts =
-      new QAction(QIcon(":/icons/icons8-sine-50.png"), "Show graph", this);
+      new QAction(QIcon(":/icons/chart.svg"), "Show graph", this);
   actionShowCharts->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_G));
   actionShowCharts->setStatusTip("View charts");
   actionShowCharts->setCheckable(true);

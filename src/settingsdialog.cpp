@@ -3,11 +3,12 @@
 #include <QRadioButton>
 #include <QSerialPortInfo>
 
-SettingsDialog::SettingsDialog(QWidget *parent)
-    : QDialog(parent), m_ui(new Ui::SettingsDialog),
+SettingsDialog::SettingsDialog(QWidget* parent)
+    : QDialog(parent),
+      m_ui(new Ui::SettingsDialog),
       m_dataBitsGroup(new QButtonGroup(this)),
-      m_stopBitsGroup(new QButtonGroup(this)), m_timer(new QTimer(this)) {
-
+      m_stopBitsGroup(new QButtonGroup(this)),
+      m_timer(new QTimer(this)) {
   m_ui->setupUi(this);
   fillParameters();
 
@@ -25,7 +26,7 @@ void SettingsDialog::fillParameters() {
                                                    {"8", QSerialPort::Data8}};
 
   for (auto it = dataBits.begin(); it != dataBits.end(); ++it) {
-    QRadioButton *radioButton = new QRadioButton(it.key());
+    QRadioButton* radioButton = new QRadioButton(it.key());
     m_ui->dataBitsContainer->addWidget(radioButton);
     m_dataBitsGroup->addButton(radioButton, it.value());
   }
@@ -49,7 +50,7 @@ void SettingsDialog::fillParameters() {
       {"2", QSerialPort::TwoStop}};
 
   for (auto it = stopBits.begin(); it != stopBits.end(); ++it) {
-    QRadioButton *radioButton = new QRadioButton(it.key());
+    QRadioButton* radioButton = new QRadioButton(it.key());
     m_ui->stopBitsContainer->addWidget(radioButton);
     m_stopBitsGroup->addButton(radioButton, it.value());
   }
@@ -114,8 +115,8 @@ bool SettingsDialog::isPortListEmpty() const {
 void SettingsDialog::updatePortList() {
   QList<QString> ports;
 
-  for (const QSerialPortInfo &port : QSerialPortInfo::availablePorts()) {
-    const QString portName = port.portName();
+  for (QSerialPortInfo const& port : QSerialPortInfo::availablePorts()) {
+    QString const portName = port.portName();
     if (!portName.startsWith("ttyS")) {
       ports.append(portName);
     }
@@ -129,14 +130,12 @@ void SettingsDialog::updatePortList() {
     QString port = ports.value(i);
     int found = m_ui->cmbPortList->findText(port);
 
-    if (found == -1 && port != "")
-      m_ui->cmbPortList->addItem(port);
+    if (found == -1 && port != "") m_ui->cmbPortList->addItem(port);
 
     // if port is not available anymore but is visible in the ui
     if (uiCount > portsCount) {
       QString port = m_ui->cmbPortList->itemText(i);
-      if (!ports.contains(port))
-        m_ui->cmbPortList->removeItem(i);
+      if (!ports.contains(port)) m_ui->cmbPortList->removeItem(i);
     }
   }
 }

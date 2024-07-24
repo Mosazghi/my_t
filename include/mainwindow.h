@@ -23,33 +23,33 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow {
   Q_OBJECT
 
-public:
-  MainWindow(QWidget *parent = nullptr);
+ public:
+  MainWindow(QWidget* parent = nullptr);
 
   ~MainWindow();
 
-private slots:
+ private slots:
   void onActionConnectEvent();
   void onActionDisconnectEvent();
   void readData();
   void writeData();
   void onChartClosed();
 
-private:
+ private:
   bool m_isConnected = false;
   bool m_isChartVisible = false;
 
-  Ui::MainWindow *m_ui = nullptr;
-  SettingsDialog *m_settingsDialog = nullptr;
-  Console *m_console = nullptr;
-  ToolbarManager *m_toolbar = nullptr;
-  QLabel *m_statusLabel = nullptr;
-  QStatusBar *m_statusBar = nullptr;
-  ChartManager *m_chartManager = nullptr;
+  Ui::MainWindow* m_ui = nullptr;
+  SettingsDialog* m_settingsDialog = nullptr;
+  Console* m_console = nullptr;
+  ToolbarManager* m_toolbar = nullptr;
+  QLabel* m_statusLabel = nullptr;
+  QStatusBar* m_statusBar = nullptr;
+  ChartManager* m_chartManager = nullptr;
   Settings m_settings;
-  SerialManager *m_serialManager = nullptr;
-  QVBoxLayout *m_layout = nullptr;
-  QLineEdit *m_lineEdit = nullptr;
+  SerialManager* m_serialManager = nullptr;
+  QVBoxLayout* m_layout = nullptr;
+  QLineEdit* m_lineEdit = nullptr;
 
-  void setStatusMessage(const QString &message);
+  void setStatusMessage(QString const& message);
 };
